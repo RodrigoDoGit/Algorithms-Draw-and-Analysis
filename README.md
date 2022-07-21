@@ -4,5 +4,5 @@ Neste repositório está o código relativo à Unidade Curricular de Desenho e A
 | Diretório    | Descrição |
 | :----------- | :-----------------------------------------------------------------------------------------|
 | Código Base  | Código fonte disponibilizado como base para resolução dos exercícios das aulas práticas |
-| Práticas     | Resoluções dos exercícios das aulas pr
+| Práticas     | Resoluções dos exercícios das aulas práticas em C, C++ e Java |
 
