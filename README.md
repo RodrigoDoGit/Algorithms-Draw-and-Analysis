@@ -1,5 +1,5 @@
 # Desenho e Análise de Algoritmos (CC2001)
-Neste repositório está o código relativo à Unidade Curricular de Desenho e Análise de Algoritmos do Ano Letivo 2021/2022.
+Neste repositório está o código relativo à Unidade Curricular de Desenho e Análise de Algoritmos do Ano Letivo 2021/2022 - DCC/FCUP.
 
 | Diretório    | Descrição |
 | :----------- | :-----------------------------------------------------------------------------------------|
