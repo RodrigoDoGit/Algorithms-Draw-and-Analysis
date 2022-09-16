@@ -5,52 +5,54 @@ import java.io.*;
 import java.util.*;
 
 // Classe que representa um no
-class Node {
+class Node{
     public LinkedList<Integer> adj; // Lista de adjacencias
     public boolean visited;         // Valor booleano que indica se foi visitado numa pesquisa
     public int distance;            // Distancia ao no origem da pesquisa
 
-    Node() {
+    Node(){
 	adj = new LinkedList<Integer>();
     }
 }
 
 // Classe que representa um grafo
-class Graph {
+class Graph{
     int n;           // Numero de nos do grafo
     Node nodes[];    // Array para conter os nos
     int dist[][];    // Matriz de distâncias
 
-    Graph(int n) {
+    Graph(int n){
 	this.n = n;
 	nodes  = new Node[n+1]; // +1 se nos comecam em 1 ao inves de 0
 	dist = new int[n][n];
-	for (int i=1; i<=n; i++)
+	
+	for(int i=1; i<=n; i++)
 	    nodes[i] = new Node();
     }
 
-    public void addLink(int a, int b) {
+    public void addLink(int a, int b){
 	nodes[a].adj.add(b);
 	nodes[b].adj.add(a);
     }
 
     // Algoritmo de pesquisa em largura
-    public void bfs(int v, Graph graph) {
+    public void bfs(int v, Graph graph){
 	LinkedList<Integer> q = new LinkedList<Integer>();
 
-	for (int i=1; i<=n; i++)
+	for(int i=1; i<=n; i++)
 	    nodes[i].visited = false;
 
 	q.add(v);
 	nodes[v].visited = true;
 	nodes[v].distance = 0;
 
-	while (q.size() > 0) {
+	while(q.size() > 0){
 	    int u = q.removeFirst();
 	    //System.out.println(u + " [dist=" + nodes[u].distance + "]");
 	    graph.dist[v-1][u-1] = nodes[u].distance;
-	    for (int w : nodes[u].adj)
-		if (!nodes[w].visited) {
+		
+	    for(int w : nodes[u].adj)
+		if(!nodes[w].visited){
 		    q.add(w);
 		    nodes[w].visited  = true;
 		    nodes[w].distance = nodes[u].distance + 1; 
@@ -59,8 +61,8 @@ class Graph {
     }
 }
 
-public class BFS {
-    public static void main(String args[]) {
+public class daa030{
+    public static void main(String args[]){
 	Scanner in = new Scanner(System.in);
 	int N = in.nextInt(); 
 	Graph grafo = new Graph(N);
@@ -69,6 +71,7 @@ public class BFS {
 	for (int i=0; i<E; i++){
 	    int A = in.nextInt();
 	    int B = in.nextInt();
+		
 	    grafo.addLink(A, B);
 	}
 	
