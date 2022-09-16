@@ -3,22 +3,23 @@
 import java.util.*;
 import java.io.*;
 
-public class daa025 {
-    static int n;              // Numero de nos do grafo
+public class daa025{
+    static int n;  	       // Numero de nos do grafo
     static boolean adj[][];    // Matriz de adjacencias
     static boolean visited[];  // Que nos ja foram visitados?
 
-    static void dfs(int v) {
+    static void dfs(int v){
 	//System.out.print(v + " ");
 	visited[v] = true;
 	int contador = 0;
-	for (int i=1; i<=n; i++)
-	    if (adj[v][i] && !visited[i]){
+	    
+	for(int i=1; i<=n; i++)
+	    if(adj[v][i] && !visited[i]){
 		dfs(i);
 	    }
     }
     
-    public static void main(String args[]) {
+    public static void main(String args[]){
 	Scanner stdin = new Scanner(System.in);
 	
 	n = stdin.nextInt();
@@ -26,9 +27,11 @@ public class daa025 {
 	visited = new boolean[n+1];	
 	int edges = stdin.nextInt();
 	int contador = 0;
-	for (int i=0; i<edges; i++) {
+	    
+	for(int i=0; i<edges; i++){
 	    int a = stdin.nextInt();
 	    int b = stdin.nextInt();
+		
 	    adj[a][b] = adj[b][a] = true;
 	}
 
