@@ -3,7 +3,7 @@
 import java.util.*;
 import java.io.*;
 
-public class DFS {
+public class daa025 {
     static int n;              // Numero de nos do grafo
     static boolean adj[][];    // Matriz de adjacencias
     static boolean visited[];  // Que nos ja foram visitados?
