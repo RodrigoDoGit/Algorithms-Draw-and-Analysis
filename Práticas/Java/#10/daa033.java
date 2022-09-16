@@ -5,68 +5,69 @@
 import java.util.*;
 
 // Classe que representa uma aresta
-class Edge {
+class Edge{
     int to;     // No destino
     double weight; // Peso da aresta
     
-    Edge(int t, double w) {
+    Edge(int t, double w){
 	to = t;
 	weight = w;
     }
 }
 
 // Classe que representa um no
-class Node {
+class Node{
     public LinkedList<Edge> adj; // Lista de adjacencias
     public boolean visited;      // No ja foi visitado?
     public double distance;         // Distancia ao no origem da pesquisa
     
-    Node() {
+    Node(){
 	adj = new LinkedList<>();
     } 
 };
 
 // Classe que representa um no para ficar na fila de prioridade
-class NodeQ implements Comparable<NodeQ> {
+class NodeQ implements Comparable<NodeQ>{
     public double cost;
     public int node;
 
-    NodeQ(double c, int n) {
+    NodeQ(double c, int n){
 	cost = c;
 	node = n;
     }
 
     @Override
-    public int compareTo(NodeQ nq) { 
+    public int compareTo(NodeQ nq){ 
         if (cost < nq.cost) return -1; 
         if (cost > nq.cost) return +1;
 	if (node < nq.node) return -1; 
 	if (node > nq.node) return +1;
+	    
         return 0; 
     } 
 }
 
 // Classe que representa um grafo
-class Graph {
+class Graph{
     int n;          // Numero de nos do grafo
     Node[] nodes;   // Array para conter os nos
     
     Graph(int n) {
 	this.n = n;
 	nodes = new Node[n+1];  // +1 se os nos comecam em 1 ao inves de 0
-	for (int i=1; i<=n; i++)
+	    
+	for(int i=1; i<=n; i++)
 	    nodes[i] = new Node();
     }
     
-    void addLink(int a, int b, double c) {
+    void addLink(int a, int b, double c){
 	nodes[a].adj.add(new Edge(b, c));
     }
 
     // Algoritmo de Dijkstra
-    void dijkstra(int s) {
-	
+    void dijkstra(int s){
 	//Inicializar nos como nao visitados e com distancia infinita
-	for (int i=1; i<=n; i++) {
+	for(int i=1; i<=n; i++){
 	    nodes[i].distance = Integer.MAX_VALUE;
 	    nodes[i].visited  = false;
 	}
@@ -77,8 +78,7 @@ class Graph {
 	q.add(new NodeQ(0, s)); // Criar um par (dist=0, no=s)
 
 	// Ciclo principal do Dijkstra
-	while (!q.isEmpty()) {
-      
+	while(!q.isEmpty()){
 	    // Retirar no com menor distancia (o "primeiro" do set, que e uma BST)
 	    NodeQ nq = q.pollFirst();
 	    int  u = nq.node;
@@ -86,10 +86,11 @@ class Graph {
 	    //System.out.println(u + " [dist=" + nodes[u].distance + "]");
 	    
 	    // Relaxar arestas do no retirado
-	    for (Edge e : nodes[u].adj) {
+	    for(Edge e : nodes[u].adj){
 		int v = e.to;
 		double cost = e.weight;
-		if (!nodes[v].visited && nodes[u].distance + cost < nodes[v].distance) {
+		    
+		if(!nodes[v].visited && nodes[u].distance + cost < nodes[v].distance){
 		    q.remove(new NodeQ(nodes[v].distance, v)); // Apagar do set
 		    nodes[v].distance = nodes[u].distance + cost;
 		    q.add(new NodeQ(nodes[v].distance, v));    // Inserir com nova (e menor) distancia
@@ -100,8 +101,8 @@ class Graph {
 };
 
 
-public class dijkstra {      
-    public static void main(String args[]) {
+public class daa033{      
+    public static void main(String args[]){
 	Scanner in = new Scanner(System.in).useLocale(Locale.US);
 	int n = in.nextInt();
 	Graph g = new Graph(n);
@@ -110,10 +111,11 @@ public class dijkstra {
 	String origem = in.next();
 	String destino = in.next();
 	TreeMap<String, Integer> locais = new TreeMap<>();
+	    
 	locais.put(origem, ind++);
 	locais.put(destino, ind++);
 	
-	for (int i=0; i<e; i++){
+	for(int i=0; i<e; i++){
 	    String ponto1 = in.next();
 	    String ponto2 = in.next();
 	    double distancia = in.nextDouble();
