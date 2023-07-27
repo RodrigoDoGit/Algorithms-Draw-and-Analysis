@@ -4,5 +4,5 @@ This repository contains the code for Algorithms Draw and Analysis Course Unit o
 | Folder    | Description |
 | :----------- | :-----------------------------------------------------------------------------------------|
 | Base Code  | Source code given as base to solve the lab classes exercises |
-| Lab Classes     | Resolutions os the lab classes exercises in C, C++ and Java |
+| Lab Classes     | Resolutions of the lab classes exercises in C, C++ and Java |
 
